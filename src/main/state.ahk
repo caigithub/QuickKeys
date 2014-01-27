@@ -1,4 +1,5 @@
 mode_name := "edit"
+SetCapsLockState, Off
 
 $Capslock::
     if( isDoubleClick("capslock.status") )
@@ -10,7 +11,7 @@ $Capslock::
     {
         press_down_time := A_TickCount
         last_lock_mode_name := mode_name
-        
+
         enterMoveMode()
         
         KeyWait, Capslock  ; 等待用户物理地松开?????
@@ -26,6 +27,7 @@ $Capslock::
         }        
         else ; simple change state
         {
+     
             toggleMode( last_lock_mode_name )
             updateLockNotify()
         }
@@ -118,7 +120,7 @@ toggleMode( last_lock_mode_name )
 
 enterMode( in_mode_name )
 {
-    addLog("==> " . in_mode_name . " mode")
+    ;addLog("==> " . in_mode_name . " mode")
 
     global mode_name 
     mode_name := in_mode_name

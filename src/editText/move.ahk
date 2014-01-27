@@ -7,21 +7,10 @@
     $l::moveToNextWord()
     $h::moveToPreviousWord()
 
-    $w::    
-        moveToNextWord()
-        moveToNextWord()
-        moveToNextWord()
-        return
-
-    $b::
-        moveToPreviousWord()
-        moveToPreviousWord()
-        moveToPreviousWord()
-        return
-
     ;====== line =======
     $j::moveToNextLine()
     $k::moveToPreviousLine()
+
 
     $g::
         if( isDoubleClick("move.LineBegin") )
@@ -58,19 +47,6 @@
     ;====== word ======
     $l::selectToNextWord()
     $h::selectToPreviousWord()
-
-
-    $w::    
-        selectToNextWord()
-        selectToNextWord()
-        selectToNextWord()
-        return
-
-    $b::
-        selectToPreviousWord()
-        selectToPreviousWord()
-        selectToPreviousWord()
-        return
 
     ;====== line =======
     $j::selectToNextLine()
@@ -109,6 +85,9 @@
     $u::selectToPreviousWord()
     $i::selectToNextWord()
 
+    $p::selectToLineEnd()
+    $y::selectToLineBegin()
+    
     $o::selectCurrentLine()
 #IF
 

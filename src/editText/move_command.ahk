@@ -24,6 +24,7 @@ selectToPreviousChar()
 }
 
 ;========== word ===========
+
 moveToNextWord()
 {
     move_operation("word.move.right", "^{right}" )  
@@ -52,6 +53,46 @@ moveToPreviousWord()
 selectToPreviousWord()
 {
     select_operation("word.select.left", "+^{left}" )
+    return
+}
+
+;========== A word ===========
+
+selectANextWord() 
+{
+    select_operation("word.select.a.right", "^{left}^{right}+^{right}" )
+    return
+} 
+
+selectAPreviousWord() 
+{
+    select_operation("word.select.a.left", "^{right}^{left}+^{left}" )
+    return
+} 
+
+;========== several word ===========
+
+moveToNextSeveralWord()
+{
+    move_operation("word.move.several.right", "^{right 3}" )  
+    return
+}
+
+selectToNextSeveralWord()
+{
+    select_operation("word.select.several.right", "+^{right 3}" )
+    return
+}
+
+moveToPreviousSeveralWord()
+{
+    move_operation("word.move.several.left", "^{left 3}" )
+    return
+}
+
+selectToPreviousSeveralWord()
+{
+    select_operation("word.select.several.left", "+^{left 3}" )
     return
 }
 

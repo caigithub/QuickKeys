@@ -2,7 +2,6 @@
 #SingleInstance, Force
 SetTitleMatchMode, 2
 
-
 #include main\map.ahk
 #include main\doubleClickChecker.ahk
 
@@ -25,16 +24,21 @@ monitor( name )
 #include editText\move.ahk
 #include editText\edit.ahk
 
-#include application\windows.ahk
-#include application\onenote.ahk
-;#include application\evernote.ahk
+#include application\textInputOutputCommand.ahk
+
+#include application\Programmer.ahk
+
+#include application\windowsCommand.ahk
+#include application\windowsMapping.ahk
+
+#include application\MainNoteOnenote.ahk
+;#include application\MainNoteEvernote.ahk
+
+#include application\onenoteMapping.ahk
+#include application\evernoteMapping.ahk
 
 #include application\officeCommand.ahk
-#include application\onenoteEditing.ahk
-#include application\officeEditing.ahk
-#include application\evernoteEditing.ahk
-
-SetCapsLockState, Off
+#include application\officeMapping.ahk
 
 return
 
@@ -55,3 +59,7 @@ clear_log:
     initLogData()
     return
 
+action_closeAllNotify:
+    SetTimer, action_closeAllNotify, Off
+    closeAllNotify()
+    return

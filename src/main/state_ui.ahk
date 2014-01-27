@@ -11,6 +11,7 @@ unvimize()
 lockEditNotify()
 {
     Gui 31:Destroy
+    Gui 33:Destroy
     
     Gui 32:+LastFoundExist
     IfWinNotExist
@@ -30,6 +31,7 @@ lockEditNotify()
 lockMoveNotify()
 {
     Gui, 32:Destroy
+    Gui, 33:Destroy
     Gui 3:Flash
     
     Gui 31:+LastFoundExist
@@ -47,8 +49,30 @@ lockMoveNotify()
     requestToCloseNotify()
 }
 
+lockWaitNotify() 
+{
+    Gui, 32:Destroy
+    Gui, 31:Destroy
+    Gui 3:Flash
+    
+    Gui 33:+LastFoundExist
+    IfWinNotExist
+    {
+        Gui, 33:Add, Text,, Executing
+        Gui, 33:-SysMenu
+        Gui, 33:-Caption
+        Gui, 33:Color, ffffff
+        Gui, 33:+Border
+        Gui, 33:+AlwaysOnTop
+        Gui, 33:+ToolWindow
+        Gui, 33:Show, AutoSize Center NoActivate
+    }
+    requestToCloseNotify()
+} 
+
 closeAllNotify()
 {
+    Gui, 33:Destroy
     Gui, 32:Destroy
     Gui, 31:Destroy
 }
@@ -58,7 +82,4 @@ requestToCloseNotify()
     SetTimer, action_closeAllNotify, 500
 }
 
-action_closeAllNotify:
-SetTimer, action_closeAllNotify, Off
-closeAllNotify()
-return
+

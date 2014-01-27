@@ -1,42 +1,42 @@
-newBracket()
+newBracket( double = false )
 {
-    new_pair_operation( "new.()" , "(" , ")")
+    new_pair_operation( "new.()" , "(" , ")" , double )
     return
 }
 
-newSquare()
+newSquare( double = false )
 {
-    new_pair_operation("new.[]", "[", "]")
+    new_pair_operation("new.[]", "[", "] {left}" , double )
     return
 }
 
-newCurveSquare()
+newCurveSquare( double = false )
 {
-    new_pair_operation("new.{}", "{{}", "{}}")
+    new_pair_operation("new.{}", "{{}", "{}}" , double )
     return
 }
 
-newQuato()
+newQuato( double = false )
 {
-    new_pair_operation("new.""" , """","""" )
+    new_pair_operation("new.""" , """","""" , double )
     return
 }
 
-newSingleQuato()
+newSingleQuato( double = false )
 {
-    new_pair_operation("new.''", "`'" , "`'")
+    new_pair_operation("new.''", "`'" , "`'" , double )
     return
 }
 
-newAngleSquare()
+newAngleSquare( double = false )
 {
-    new_pair_operation("new.<>", "<" , ">")
+    new_pair_operation("new.<>", "<" , ">" , double )
     return
 }
 
-newVariable()
+newVariable( double = false )
 {
-    new_pair_operation("new.%%" , "`%" , "`%")
+    new_pair_operation("new.%%" , "`%" , "`%" , double )
     return
 }
 
@@ -44,9 +44,16 @@ newVariable()
 ;========== basic operation define =============
 ;==============================================
 
-new_pair_operation(name, operation1, operation2 )
+new_pair_operation(name, operation1, operation2, needDoubleClick )
 {
     monitor( "***  " . name )
+
+    if( needDoubleClick )
+    {
+        send %operation1%%operation2%{left}
+        return
+    }
+
     if( isDoubleClick(name) )
     {
         send %operation2%

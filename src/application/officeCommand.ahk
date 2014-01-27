@@ -28,6 +28,12 @@
             line_operation( "underline" , "^{u}" )
                 return
         }
+
+        strikethrough()
+        {
+            line_operation("strikethrough", "^-")
+            return
+        }
 ;== }
 
 ;== {

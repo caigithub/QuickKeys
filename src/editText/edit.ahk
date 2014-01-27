@@ -1,71 +1,90 @@
-#IF isInMode() 
-    $e::
-        del( true )
-        return
+; ==== operator {
+    #IF isInMode() 
+        $e::
+            del( true )
+            return
+            
+        $t::
+            send {right}^+{left}{del}
+            return
+        $r::
+            backspace()
+            return
         
-    $r::^y
+        $a::selectCurrentDoc()
+        $s::^s
+        $d::del()
+        $f::
+            enterMoveMode()
+            Send {left}{right}
+            return
 
-    $a::selectCurrentDoc()
-    $s::^s
-    $d::del()
-    $f::
-        enterMoveMode()
-        Send {left}{right}
+        $z::^z
+        $x::cut()
+        $c::copy()
+        $v::paste()
+    #IF
+
+    ;#all mode
+        $^e::
+        $!e::
+            del( true )
+            return
+
+        $!r::backspace()
+
+        $^d::
+        $!d::
+            del()
+            return
+
+        $^v::paste()
+
+        $!t::
+            send {right}^+{left}{del}
+            return
+        
+        $RAlt::
+            Send {AppsKey}
+            return
+; ==== operator }
+
+; ==== pair { 
+    $+9::newBracket()
+    $!9::newBracket()
+
+    $+{::newCurveSquare()
+
+    $[::newSquare()
+    $![::
+        if( isDoubleClick("line.begin.square") == false )
+        {
+            moveToLineBegin()
+        }
+        newSquare()
         return
 
-    $z::^z
-    $x::cut()
-    $c::copy()
-    $v::paste()
-    
-    $y::copy()
-    $p::paste()
-#IF
+    $+'::newQuato()
+    $!'::newQuato( )
 
-;#all mode
-    $^e::
-    $!e::
-        del( true )
-        return
+    $'::newSingleQuato()
 
-    $^d::
-    $!d::
-        del()
-        return
+    $!5::newVariable()
+    $+5::newVariable()
+        
+; ==== pair }
 
-    $^y::copy()
-    $^v::paste()
-    $^p::paste()
-
-    $RControl::
-        selectCurrentWord()
-        return
-    
-    $RAlt::
-        Send {AppsKey}
-        return
-
-    $+;::
-        GetKeyState, state, LShift
-        if state = D 
-            if( isDoubleClick("new.program.end") )
-            {
-                send {enter}
-            }
-            else
-            {
-                send {end}`;
-            }
-        else
-            send :
-        return
-
-    $+.::
+; ==== text fixing {
+	$+.::
         GetKeyState, state, LShift
         if state = D 
             send .
         else
             send >
+        return
+
+    $!.::
+        send .
         return 
 
     $+,::
@@ -74,32 +93,14 @@
             send {,}
         else
             newAngleSquare()
-        return 
-
-    $+9::newBracket()
-    $+{::newCurveSquare()
-    $[::newSquare()
-    $+'::newQuato()
-    $'::newSingleQuato()
-    $+5::newVariable()
-
-    $+Enter::insertNewLine()
-    $!Enter::appendNewLine()
-
-    $+Backspace::
-    $!Backspace::
-    $^Backspace::
-        moveToLineEnd()
-        send {Backspace}
         return
 
-    $+Delete::
-    $!Delete::
-    $^Delete::
-        moveToLineBegin()
-        del()
-        return 
+    $`::
+        send +{Tab}
+        return
 
-;#all mode
+; ==== text fixing }
+
+
     
 
