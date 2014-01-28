@@ -13,20 +13,21 @@
 
         highlight()
         {
-            line_operation( "highlight" , "^!{h}" )
-                return
+            monitor("**** highlight")
+            send ^!{h}
+            return
         }
 
         bold()
         {
             line_operation( "bold" , "^{b}" )
-                return
+            return
         }
 
         underline()
         {
             line_operation( "underline" , "^{u}" )
-                return
+            return
         }
 
         strikethrough()
