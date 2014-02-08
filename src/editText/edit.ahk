@@ -51,7 +51,7 @@
 
 ; ==== pair { 
     $+9::newBracket()
-    $!9::newBracket()
+    $!9::newBracket( true )
 
     $+{::newCurveSquare()
 
@@ -61,15 +61,15 @@
         {
             moveToLineBegin()
         }
-        newSquare()
+        newSquare( true )
         return
 
     $+'::newQuato()
-    $!'::newQuato( )
+    $!'::newQuato( true )
 
     $'::newSingleQuato()
 
-    $!5::newVariable()
+    $!5::newVariable( true )
     $+5::newVariable()
         
 ; ==== pair }
@@ -93,6 +93,11 @@
             send {,}
         else
             newAngleSquare()
+        return
+
+    $!,::
+        ;send {,}
+        newAngleSquare( true ) 
         return
 
     $`::

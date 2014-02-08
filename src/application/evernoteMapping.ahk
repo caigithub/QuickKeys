@@ -81,6 +81,7 @@
                 send ^{m}
                 return
 
+            $`::
             $+Tab::
                 ;send {home}{del 4}
                 send ^+{m}
