@@ -1,7 +1,3 @@
-   $!,::
-        send {,}
-        return 
-
     $!;::
         monitor( "***  " . "pro.line.end" )
         if( isDoubleClick("new.program.end") )
