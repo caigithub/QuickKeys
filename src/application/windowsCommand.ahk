@@ -10,7 +10,7 @@ handlerCreateFile( content )
 
 getFolderPath()
 {
-    return "C:\workspace\QuickNotes" 
+    return "C:\workspace\GrabbedNotes" 
 }
 
 getFilePath()

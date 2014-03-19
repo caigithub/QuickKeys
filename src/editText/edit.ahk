@@ -26,7 +26,6 @@
     #IF
 
     ;#all mode
-        $^e::
         $!e::
             del( true )
             return

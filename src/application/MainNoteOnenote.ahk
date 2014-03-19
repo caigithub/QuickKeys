@@ -129,17 +129,6 @@ $^!p::
         return
     }
 
-$Esc::
-    IfWinActive , OneNote
-    {
-        miniOnenote()   
-    }
-    else
-    {
-        Send {Esc}
-    }
-    return
-
 $^!n::
     openOnenote()
     send ^{n}{Tab}

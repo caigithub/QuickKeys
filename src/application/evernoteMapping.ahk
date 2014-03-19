@@ -25,6 +25,9 @@
                 line_operation("underline" , "^{u}" )
                 return
 
+            $^v::
+                send ^+{v}
+                return
 
             $!f::
                 content := getText()
@@ -67,7 +70,7 @@
 
             $!`::
             $!1::
-                send {f11}{f10}
+                send {f11}{f10}^{f11}
                 return
 
             $F12::

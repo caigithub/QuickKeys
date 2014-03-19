@@ -1,3 +1,11 @@
+; ==== vim {
+    #IfWinActive , - GVIM
+        $~ESC::
+            enterEditMode()
+            return
+    #If
+; ==== vim }
+
     $!;::
         monitor( "***  " . "pro.line.end" )
         if( isDoubleClick("new.program.end") )

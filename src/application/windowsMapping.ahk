@@ -23,7 +23,7 @@ $#m::
     send #d
     return
  
-+esc::
+$+esc::
     monitor( "***  " . "window.close" )
     ;winminimize , a
     winclose, a
@@ -35,11 +35,6 @@ $#q::
     monitor( "***  " . "window.vim" )
     
     content := getText()
-    if( StrLen(content) <= 0 )
-    {
-        return
-    }
-
     handlerCreateFile( content )
     return
 
