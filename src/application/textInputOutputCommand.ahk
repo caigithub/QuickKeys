@@ -4,7 +4,7 @@ getText()
     clipboard := ""
     
     send ^c
-    clipwait, 0.3
+    clipwait, 0.15
     newContent := clipboard
 
     clipboard := oldContent
