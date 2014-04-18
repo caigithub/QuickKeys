@@ -73,37 +73,47 @@
         appendNewLine()
         return
 
-    $!w::
+    lineBeginOperation()
+    {
+        if( isDoubleClick("line.begin.operation") )
+            {
+                send {delete}
+            }
+            else
+            {
+                send {home}
+            }
+            return 
+    }
+
+    lineEndOperation()
+    { 
         if( isDoubleClick("line.end.operation") )
-        {
-            send {backspace}
-        }
-        else
-        {
-            send {end}
-        }
+            {
+                send {backspace}
+            }
+            else
+            {
+                send {end}
+            }
+            return
+    }
+    
+    $!w::
+        lineEndoperation()
         return
 
     $!q::
-        if( isDoubleClick("line.begin.operation") )
-        {
-            send {delete}
-        }
-        else
-        {
-            send {home}
-        }
+        lineBeginOperation()
         return 
 
     #IF isInMode() 
         $w::
-            monitor( "        " . "pro.line.end.char.delete" )
-            send {end}{backspace}
+            lineEndoperation()
             return
 
         $q::
-            monitor( "        " . "pro.line.begin.char.delete" )
-            send {home}{delete}
+            lineBeginOperation()
             return 
     #IF
 ; ==== line begin / end operation }
