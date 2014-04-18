@@ -5,8 +5,6 @@
             return
             
         $t::
-            send {right}^+{left}{del}
-            return
         $r::
             backspace()
             return
@@ -38,10 +36,6 @@
             return
 
         $^v::paste()
-
-        $!t::
-            send {right}^+{left}{del}
-            return
         
         $RAlt::
             Send {AppsKey}
@@ -72,6 +66,48 @@
     $+5::newVariable()
         
 ; ==== pair }
+
+; ==== line begin / end operation {
+    $+Enter::
+    $!Enter::
+        appendNewLine()
+        return
+
+    $!w::
+        if( isDoubleClick("line.end.operation") )
+        {
+            send {backspace}
+        }
+        else
+        {
+            send {end}
+        }
+        return
+
+    $!q::
+        if( isDoubleClick("line.begin.operation") )
+        {
+            send {delete}
+        }
+        else
+        {
+            send {home}
+        }
+        return 
+
+    #IF isInMode() 
+        $w::
+            monitor( "        " . "pro.line.end.char.delete" )
+            send {end}{backspace}
+            return
+
+        $q::
+            monitor( "        " . "pro.line.begin.char.delete" )
+            send {home}{delete}
+            return 
+    #IF
+; ==== line begin / end operation }
+
 
 ; ==== text fixing {
 	$+.::

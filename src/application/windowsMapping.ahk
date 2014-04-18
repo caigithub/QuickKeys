@@ -5,12 +5,12 @@ $#j::
 
 $#k::
     monitor( "***  " . "window.upscreen" )
-    send +#{right}#{up}
+    send +#{right}
     return
 
 $#i::
     monitor( "***  " . "window.max" )
-    send #{up}
+    send {alt down}{space}{alt up}{x}
     return
 
 $#u::
