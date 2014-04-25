@@ -7,7 +7,9 @@
     $l::moveToNextWord()
     $h::moveToPreviousWord()
 
-    ;====== line =======
+    $w::moveToNextSeveralWord()
+    $b::moveToPreviousSeveralWord()
+    
     $j::moveToNextLine()
     $k::moveToPreviousLine()
 
@@ -48,6 +50,9 @@
     $l::selectToNextWord()
     $h::selectToPreviousWord()
 
+    $w::selectToNextSeveralWord()
+    $b::selectToPreviousSeveralWord()
+    
     ;====== line =======
     $j::selectToNextLine()
     $k::selectToPreviousLine()

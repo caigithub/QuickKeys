@@ -107,14 +107,6 @@
         lineBeginOperation()
         return 
 
-    #IF isInMode() 
-        $w::
-            lineEndoperation()
-            return
-
-        $q::
-            lineBeginOperation()
-            return 
     #IF
 ; ==== line begin / end operation }
 
