@@ -47,15 +47,12 @@
     $!9::newBracket( true )
 
     $+{::newCurveSquare()
+    $![::
+        moveToLineEnd()
+        newCurveSquare(true)
+        return
 
     $[::newSquare()
-    $![::
-        if( isDoubleClick("line.begin.square") == false )
-        {
-            moveToLineBegin()
-        }
-        newSquare( true )
-        return
 
     $+'::newQuato()
     $!'::newQuato( true )
@@ -75,28 +72,12 @@
 
     lineBeginOperation()
     {
-        if( isDoubleClick("line.begin.operation") )
-            {
-                send {delete}
-            }
-            else
-            {
-                send {home}
-            }
-            return 
+        send {home}{delete}
     }
 
     lineEndOperation()
     { 
-        if( isDoubleClick("line.end.operation") )
-            {
-                send {backspace}
-            }
-            else
-            {
-                send {end}
-            }
-            return
+        send {end}{backspace}
     }
     
     $!w::

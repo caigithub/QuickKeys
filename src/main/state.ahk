@@ -34,18 +34,10 @@ $Capslock::
     }
     return
 
-$+Capslock::
-$^Capslock::
-$!Capslock::
-    SetCapsLockState, Off
-    return
-    
 #IF isInMode()
     $LButton::
     $RButton::
     $MButton::
-    $WheelDown::
-    $WheelUp::
         enterEditMode()
         updateLockNotify()
         
