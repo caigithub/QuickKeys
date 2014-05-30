@@ -2,14 +2,14 @@
 @set base_drive=%~d0 
 @set base_dir=%~dp0
 
-@%base_drive%:
+@%base_drive%
 @cd %base_dir%
 
 @set target=VimMode.exe
 @set out=%base_dir%bin\%target%
 
-@set icon=%base_dir%\res\main.ico
-@set src=%base_dir%\src\main.ahk
+@set icon=%base_dir%res\main.ico
+@set src=%base_dir%src\main.ahk
 
 @echo == cleaning
 @taskkill /f /im %target%
@@ -18,7 +18,8 @@
 @echo .
 @echo .
 @echo == compile %src%
-@echo       to %out%
+@echo       icon : %icon%
+@echo       output :  %out%
 @md %base_dir%bin
 rem ---------------------------
 rem Ahk2Exe

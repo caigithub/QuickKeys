@@ -138,7 +138,6 @@ $^!m::
     toggleOpenOnenote() 
     return
 
-$^+o::
 $^!o::
     openOnenote()
     send ^{e}

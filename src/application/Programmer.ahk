@@ -23,3 +23,7 @@
         monitor( "***  " . "pro.line.commont" )
         send {home}//
         return
+
+    $RCtrl::
+        send {delete}
+        return
