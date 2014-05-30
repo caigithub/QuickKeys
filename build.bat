@@ -12,7 +12,6 @@
 @set src=%base_dir%src\main.ahk
 
 @echo == cleaning
-@taskkill /f /im %target%
 @del %out%
 
 @echo .
@@ -27,23 +26,6 @@ rem Command Line Parameters:
 rem Ahk2Exe.exe /in infile.ahk [/out outfile.exe] [/icon iconfile.ico] [/pass password] [/bin AutoHotkeySC.bin]
 @set ahk=%base_dir%Compiler\Ahk2Exe.exe
 %ahk% /in %src% /out %out% /icon %icon%
-
-@echo .
-@echo .
-@echo == deploy %out%
-
-@set temp=G:\gears\note toolkits
-@echo       to %temp%
-@copy %out% "%temp%"
-
-@set temp=C:\pack_and_go
-@echo       to %temp%
-@copy %out% %temp%
-
-@echo .
-@echo .
-@echo == restarting 
-start %temp%\%target%
 
 @echo .
 @echo .
