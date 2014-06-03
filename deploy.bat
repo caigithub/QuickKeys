@@ -14,10 +14,6 @@
 @echo .
 @echo == deploy %out%
 
-@set temp=G:\gears\note toolkits
-@echo       to %temp%
-@copy %out% "%temp%"
-
 @set temp=C:\pack_and_go
 @echo       to %temp%
 @copy %out% %temp%
