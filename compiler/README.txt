@@ -1,23 +1,44 @@
-This is a custom build of Ahk2Exe supporting an additional command-line switch:
+===================================================
+   Important Notes for Ahk2Exe for AutoHotkey_L
+===================================================
 
-    /bin "Path of custom AutoHotkeySC.bin"
+1. BIN Files
 
-Source code is available at http://github.com/Lexikos/Ahk2Exe_L
+Scripts are "compiled" by combining them with a .bin file containing
+the script interpreter, similar to AutoHotkey.exe.  This version of
+Ahk2Exe requires a .bin file compiled from AutoHotkey_L source code
+or a compatible fork.  The official download includes three:
 
-Recent changes by Lexikos:
-  - Added support for x64 builds of AutoHotkey_L. Stores the script as a PE resource.
-  - Fixed a bug causing truncation of resource names (and possibly string resources).
-  - mpress.exe is used instead of upx.exe; mainly because it supports x64.
+  - ANSI 32-bit.bin
+  - Unicode 32-bit.bin
+  - Unicode 64-bit.bin
 
-Very old changes by Lexikos:
-  - Added processing of /bin switch in application.cpp, line 648.
-  - Added #define _CRT_SECURE_NO_WARNINGS in StdAfx.h to reduce compiler warnings.
-  - Minor change in application.cpp to fix a compile error.
+One of these should be selected from the "Base File" drop-down list
+in the GUI.  If "(Default)" is selected, there must be a file named
+AutoHotkeySC.bin in the Ahk2Exe directory.  This is normally created
+by the AutoHotkey_L installer (simply a copy of another bin file).
+If this file does not exist, Ahk2Exe will attempt to copy it from
+one of the other bin files (typically Unicode 32-bit).
 
-================
 
-This is a version of the AutoIt3 compiler that has been adapted for use with AutoHotkey scripts.
+2. AutoHotkey.exe
 
-See www.autohotkey.com and www.hiddensoft.com for details.
+Function library auto-includes are only supported if a copy of
+AutoHotkey.exe exists in the parent directory.  For example:
 
-AutoIt3 Note: See the main AutoIt source.
+  C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe
+  C:\Program Files\AutoHotkey\AutoHotkey.exe
+
+Although this exe doesn't need to be the same version as the current
+.bin file, it must at least be able to load (not run) the script you
+are attempting to compile.
+
+
+3. Usage
+
+Usage via the GUI should be self-explanatory.  For command-line
+usage, run "Ahk2Exe.exe /?".  For more info, see the documentation:
+
+Offline:  See "ahk2exe" in the AutoHotkey_L help file index.
+Online:   http://l.autohotkey.net/docs/Scripts.htm#ahk2exe
+
