@@ -19,6 +19,16 @@
 
         return
 
+    $!0::
+        monitor( "*** " . "pro.line.end - char )")
+        send {end})
+        return
+
+    $!]::
+        monitor( "*** " . "pro.line.end - char ]")
+        send {end}}
+        return
+
    $!/::
         monitor( "***  " . "pro.line.commont" )
         send {home}//

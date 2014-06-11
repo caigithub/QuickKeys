@@ -1,0 +1,3 @@
+disable "send to onenote"
+disable "uac"
+disable "remote connection - global key"
