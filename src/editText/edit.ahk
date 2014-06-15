@@ -45,14 +45,27 @@
 ; ==== pair { 
     $+9::newBracket()
     $!9::
-        moveToNextWord()
-        newBracket( true )
+       if( isDoubleClick( "pair.bracket" ) )
+        {
+            send {enter}{enter}{up}{end}
+        }
+        else
+        {
+            newBracket( true )
+        }
         return
 
     $+{::newCurveSquare()
     $![::
-        moveToLineEnd()
-        newCurveSquare(true)
+        if( isDoubleClick( "pair.curveSquare" ) )
+        {
+            send {enter}{enter}{up}{end}
+        }
+        else
+        {
+            moveToLineEnd()
+            newCurveSquare(true)
+        }
         return
 
     $[::newSquare()

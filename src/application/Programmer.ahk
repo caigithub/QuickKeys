@@ -6,6 +6,18 @@
     #If
 ; ==== vim }
 
+    $!i::
+        send {enter}{enter}{up}{end}
+        return 
+
+    $!u::
+        send {delete}{backspace}
+        return
+
+    $+space::
+        send {space}={space}
+        return
+
     $!;::
         monitor( "***  " . "pro.line.end" )
         if( isDoubleClick("new.program.end") )
