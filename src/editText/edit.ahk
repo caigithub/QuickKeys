@@ -44,7 +44,10 @@
 
 ; ==== pair { 
     $+9::newBracket()
-    $!9::newBracket( true )
+    $!9::
+        moveToNextWord()
+        newBracket( true )
+        return
 
     $+{::newCurveSquare()
     $![::
