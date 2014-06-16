@@ -14,7 +14,7 @@
 @echo .
 @echo == deploy %out%
 
-@set temp=C:\pack_and_go
+@set temp=C:\port\software\portable
 @echo       to %temp%
 @copy %out% %temp%
 

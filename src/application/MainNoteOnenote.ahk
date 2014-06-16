@@ -140,5 +140,5 @@ $^!m::
 
 $^!o::
     openOnenote()
-    send ^{e}
+    send {esc}^{e}
     return

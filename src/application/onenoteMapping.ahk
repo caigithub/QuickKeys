@@ -50,7 +50,7 @@
         $^o::
         $^!F3::
             ;search
-            Send ^{e}
+            Send {ESC}^{e}
             return 
 
         $F12::
@@ -71,7 +71,7 @@
         $!`::
         $!1::
             ;note list
-            Send ^{g}{tab 4}
+            Send {esc}^{g}{tab 4}
             return
 
         $!Down::
