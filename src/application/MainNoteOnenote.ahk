@@ -13,7 +13,7 @@
 
     createOnenote()
     {
-        send #+{n}
+        sendPlay #+{n}
         activeOnenote()
         return
     }
@@ -117,12 +117,12 @@ $^!p::
         {
             openOnenote()
 
-            send ^n
-            send {delete}
+            sendPlay ^n
+            sendPlay {delete}
             
             ContentPasteAtBegin()
 
-            send !{left}
+            sendPlay !{left}
             toggleOpenOnenote()
         }
 
@@ -131,7 +131,7 @@ $^!p::
 
 $^!n::
     openOnenote()
-    send ^{n}{Tab}
+    sendPlay ^{n}{Tab}
     return
 
 $^!m::
@@ -140,5 +140,5 @@ $^!m::
 
 $^!o::
     openOnenote()
-    send {esc}^{e}
+    sendPlay {esc}^{e}
     return

@@ -3,7 +3,7 @@ getText()
     oldContent := clipboardAll
     clipboard := ""
     
-    send ^c
+    sendPlay ^c
     clipwait, 0.15
     newContent := clipboard
 
@@ -17,7 +17,7 @@ outputText( content )
     old_clipboard := clipboardAll
     clipboard := content
 
-    send ^v
+    sendPlay ^v
     
     clipboard := old_clipboard
     return

@@ -43,7 +43,7 @@ $Capslock::
         
         StringReplace, k_ThisHotkey, A_ThisHotkey, ~
         StringReplace, k_ThisHotkey, k_ThisHotkey, $
-        Send {%k_ThisHotkey%}
+        sendPlay {%k_ThisHotkey%}
         
         return
 

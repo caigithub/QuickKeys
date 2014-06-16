@@ -14,7 +14,7 @@
         highlight()
         {
             monitor("**** highlight")
-            send ^!{h}
+            sendPlay ^!{h}
             return
         }
 

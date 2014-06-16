@@ -26,14 +26,14 @@
                 return
 
             $^v::
-                send ^+{v}
+                sendPlay ^+{v}
                 return
 
             $!f::
                 content := getText()
                 if( StrLen(content) <= 0 )
                 {
-                    send {home}+{end}
+                    sendPlay {home}+{end}
                     content := getText()
                 }
 
@@ -59,35 +59,35 @@
 
     ;=== windows {
             $^Tab::
-                send !{left}
+                sendPlay !{left}
                 return
 
             $^o::
             $^!F3::
                 ; search
-                send {f6}
+                sendPlay {f6}
                 return 
 
             $!`::
             $!1::
-                send {f11}{f10}^{f11}
+                sendPlay {f11}{f10}^{f11}
                 return
 
             $F12::
-                send {f11}
+                sendPlay {f11}
                 return
     ;}
 
     ; === special {
             $Tab::
-                ;send {home}{space 4}{right 4} 
-                send ^{m}
+                ;sendPlay {home}{space 4}{right 4} 
+                sendPlay ^{m}
                 return
 
             $`::
             $+Tab::
-                ;send {home}{del 4}
-                send ^+{m}
+                ;sendPlay {home}{del 4}
+                sendPlay ^+{m}
                 return
     ;}
 #If

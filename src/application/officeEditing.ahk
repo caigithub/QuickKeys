@@ -28,7 +28,7 @@
     ;== { formatting
          $!f::
             ; clear format
-            send ^+{z}
+            sendPlay ^+{z}
             return
 
         $^=::
@@ -55,7 +55,7 @@
             return
 
        $^f::
-            send {F4}
+            sendPlay {F4}
             return
     ;== }
 #If

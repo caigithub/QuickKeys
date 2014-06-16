@@ -56,7 +56,7 @@ command_operation( name , command , autoselect )
     }
 
     monitor( "***  " . name )
-    send %command%
+    sendPlay %command%
 
     if( last_is_in_mode )
     {

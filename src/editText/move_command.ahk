@@ -265,7 +265,7 @@ move_operation( name,  key )
     else
     {
         monitor( "        " . name )
-        Send %key%
+        sendPlay %key%
         return
     }
 }

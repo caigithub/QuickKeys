@@ -40,9 +40,17 @@ newVariable( double = false )
     return
 }
 
+expandPair()
+{
+    monitor("*** pair.expand")
+
+    sendPlay {enter}{enter}{up}{end}{Tab}
+    return
+}
+
 ;===============================================
 ;========== basic operation define =============
-;==============================================
+;===============================================
 
 new_pair_operation(name, operation1, operation2, needDoubleClick )
 {
@@ -50,17 +58,17 @@ new_pair_operation(name, operation1, operation2, needDoubleClick )
 
     if( needDoubleClick )
     {
-        send %operation1%%operation2%{left}
+        sendPlay %operation1%%operation2%{left}
         return
     }
 
     if( isDoubleClick(name) )
     {
-        send %operation2%
-        send {left}
+        sendPlay %operation2%
+        sendPlay {left}
     }
     else
     {
-        send %operation1%
+        sendPlay %operation1%
     }
 }

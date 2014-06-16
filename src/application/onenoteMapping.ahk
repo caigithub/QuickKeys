@@ -36,12 +36,12 @@
 
         $Tab::
             ;indent in
-            send !+{right}
+            sendPlay !+{right}
             return
 
         $+Tab::
             ;indent out
-            send !+{left}
+            sendPlay !+{left}
             return
     ;== }
 
@@ -50,45 +50,45 @@
         $^o::
         $^!F3::
             ;search
-            Send {ESC}^{e}
+            sendPlay {ESC}^{e}
             return 
 
         $F12::
             ;full screen
-            Send ^!{d}
+            sendPlay ^!{d}
             return
 
         $^Tab::
             ;last modify page
-            send !{left}
+            sendPlay !{left}
             return
 
         $^m::
             ;move page
-            Send ^!{m}
+            sendPlay ^!{m}
             return
 
         $!`::
         $!1::
             ;note list
-            Send {esc}^{g}{tab 4}
+            sendPlay {esc}^{g}{tab 4}
             return
 
         $!Down::
             ;page previous
-            send ^{PGDN}
+            sendPlay ^{PGDN}
             return
 
         $!Up::
             ;page next
-            send ^{PGUP}
+            sendPlay ^{PGUP}
             return
     ;== }
 
     ;== { style
         $^t::
         $!t::
-            send {home}+{end}
+            sendPlay {home}+{end}
             onenoteFormatsClear()
             titleCurrentLine()
             return
@@ -112,22 +112,22 @@
 
     ;== { editing
         $F2::
-            send ^+{t}
+            sendPlay ^+{t}
             return
     ;== }
 #If
 
 onenoteFormatCommand( key )
 {
-    Send ^0
-    send %key%
+    sendPlay ^0
+    sendPlay %key%
     return
 }
 
 onenoteFormatsClear()
 {
-    Send ^0
-    Send ^+{n}
+    sendPlay ^0
+    sendPlay ^+{n}
     return
 }
 

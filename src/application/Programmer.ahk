@@ -5,47 +5,47 @@
             return
     #If
 ; ==== vim }
-
     $!i::
-        send {enter}{enter}{up}{end}
+        expandPair()
         return 
 
     $!u::
-        send {delete}{backspace}
+        sendPlay {delete}{backspace}
         return
 
+    $!space::
     $+space::
-        send {space}={space}
+        sendPlay {=}
         return
 
     $!;::
         monitor( "***  " . "pro.line.end" )
         if( isDoubleClick("new.program.end") )
         {
-            send {enter}
+            sendPlay {enter}
         }
         else
         {
-            send {end}`;
+            sendPlay {end}`;
         }
 
         return
 
     $!0::
         monitor( "*** " . "pro.line.end - char )")
-        send {end})
+        sendPlay {end})
         return
 
     $!]::
         monitor( "*** " . "pro.line.end - char ]")
-        send {end}}
+        sendPlay {end}}
         return
 
    $!/::
         monitor( "***  " . "pro.line.commont" )
-        send {home}//
+        sendPlay {home}//
         return
 
     $RCtrl::
-        send {delete}
+        sendPlay {delete}
         return

@@ -52,12 +52,12 @@
             $^o::
             $^!F3::
                 ; search
-                send {f6}
+                sendPlay {f6}
                 return 
 
             $F12::
                 ; full windows
-                send {f11}{f10}
+                sendPlay {f11}{f10}
                 return
 
             $^Tab::

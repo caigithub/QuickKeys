@@ -14,7 +14,7 @@
         $d::del()
         $f::
             enterMoveMode()
-            Send {left}{right}
+            sendPlay {left}{right}
             return
 
         $z::^z
@@ -38,34 +38,19 @@
         $^v::paste()
         
         $RAlt::
-            Send {AppsKey}
+            sendPlay {AppsKey}
             return
 ; ==== operator }
 
 ; ==== pair { 
     $+9::newBracket()
-    $!9::
-       if( isDoubleClick( "pair.bracket" ) )
-        {
-            send {enter}{enter}{up}{end}
-        }
-        else
-        {
-            newBracket( true )
-        }
-        return
+    $!9::newBracket( true )
 
     $+{::newCurveSquare()
     $![::
-        if( isDoubleClick( "pair.curveSquare" ) )
-        {
-            send {enter}{enter}{up}{end}
-        }
-        else
-        {
-            moveToLineEnd()
-            newCurveSquare(true)
-        }
+        moveToLineEnd()
+        newCurveSquare(true)
+        expandPair()
         return
 
     $[::newSquare()
@@ -88,12 +73,12 @@
 
     lineBeginOperation()
     {
-        send {home}{delete}
+        sendPlay {home}{delete}
     }
 
     lineEndOperation()
     { 
-        send {end}{backspace}
+        sendPlay {end}{backspace}
     }
     
     $!w::
@@ -104,7 +89,6 @@
         lineBeginOperation()
         return 
 
-    #IF
 ; ==== line begin / end operation }
 
 
@@ -112,30 +96,30 @@
 	$+.::
         GetKeyState, state, LShift
         if state = D 
-            send .
+            sendPlay .
         else
-            send >
+            sendPlay >
         return
 
     $!.::
-        send .
+        sendPlay .
         return 
 
     $+,::
         GetKeyState, state, LShift
         if state = D 
-            send {,}
+            sendPlay {,}
         else
             newAngleSquare()
         return
 
     $!,::
-        ;send {,}
+        ;sendPlay {,}
         newAngleSquare( true ) 
         return
 
     $`::
-        send +{Tab}
+        sendPlay +{Tab}
         return
 
 ; ==== text fixing }
