@@ -250,20 +250,21 @@ selectCurrentDoc()
 
 clearSelection()
 {
-    move_operation("select.clear", "{left}{right}")
+    move_operation("select.clear", "{right}{left}")
 }
 
 move_operation( name,  key )
 {
-    monitor( "        " . name )
 
     IfWinActive , OneNote
     {
+        monitor( "        [onenote] " . name )
         SendPlay %key%
         return
     }
     else
     {
+        monitor( "        " . name )
         Send %key%
         return
     }
