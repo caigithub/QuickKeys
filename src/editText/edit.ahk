@@ -44,13 +44,30 @@
 
 ; ==== pair { 
     $+9::newBracket()
-    $!9::newBracket( true )
+    $!9::
+       if( isDoubleClick( "pair.bracket" ) )
+        {
+            expandPair()    
+        }
+        else
+        {
+            newBracket( true )
+        }
+        return
+
 
     $+{::newCurveSquare()
     $![::
-        moveToLineEnd()
-        newCurveSquare(true)
-        expandPair()
+        if( isDoubleClick( "pair.curveSquare" ) )
+        {
+            expandPair()    
+        }
+        else
+        {
+            moveToLineEnd()
+            newCurveSquare(true)
+        }
+
         return
 
     $[::newSquare()

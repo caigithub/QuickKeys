@@ -38,7 +38,7 @@
 
     $!]::
         monitor( "*** " . "pro.line.end - char ]")
-        sendPlay {end}}
+        sendPlay {end}{`}}
         return
 
    $!/::
