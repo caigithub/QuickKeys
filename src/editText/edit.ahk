@@ -80,6 +80,9 @@
     $!5::newVariable( true )
     $+5::newVariable()
         
+    $!8::newStar( true )
+    $+8::newStar()
+
 ; ==== pair }
 
 ; ==== line begin / end operation {

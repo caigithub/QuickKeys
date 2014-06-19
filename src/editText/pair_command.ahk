@@ -40,6 +40,12 @@ newVariable( double = false )
     return
 }
 
+newStar( double = false )
+{
+    new_pair_operation("new.%%" , "*" , "*" , double )
+    return
+}
+
 expandPair()
 {
     monitor("*** pair.expand")
