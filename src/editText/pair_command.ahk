@@ -6,7 +6,7 @@ newBracket( double = false )
 
 newSquare( double = false )
 {
-    new_pair_operation("new.[]", "[", "] {left}" , double )
+    new_pair_operation("new.[]", "[", "]" , double )
     return
 }
 
