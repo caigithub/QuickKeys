@@ -22,7 +22,9 @@ monitor( name )
 #include editText\pair_command.ahk
 
 #include editText\move.ahk
-#include editText\edit.ahk
+#include editText\operator.ahk
+#include editText\line.ahk
+#include editText\pair.ahk
 
 #include application\textInputOutputCommand.ahk
 

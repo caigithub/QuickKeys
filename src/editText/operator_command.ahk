@@ -1,59 +1,63 @@
-copy()
-{
-    command_operation("operator.copy", "^{c}" , false )
-    return
-}
+;#common operation {
+    copy()
+    {
+        command_operation("operator.copy", "^{c}" )
+        return
+    }
 
-paste()
-{
-    command_operation("operator.paste" , "^{v}" , false )
-    return
-}
+    paste()
+    {
+        command_operation("operator.paste" , "^{v}" )
+        return
+    }
 
-cut()
-{
-    command_operation("operator.cut", "^{x}", false )
-    return
-}
+    cut()
+    {
+        command_operation("operator.cut", "^{x}" )
+        return
+    }
 
-del( lineOperation = false )
-{
-    command_operation("operator.del", "{del}" , lineOperation )
-    return
-}
+    del()
+    {
+        command_operation("operator.del", "{del}" )
+        return
+    }
 
-backspace()
-{
-    command_operation("operator.backspace", "{backspace}" , false )
-    return
-}
+    backspace()
+    {
+        command_operation("operator.backspace", "{backspace}" )
+        return
+    }
+;#common operation }
 
-insertNewLine()
-{
-    command_operation("new.line", "{home}{enter}{up}", false )
-    return
-}
+;#line operation { 
+    insertNewLine()
+    {
+        command_operation("insert.new.line", "{home}{enter}{up}" )
+        return
+    }
 
-appendNewLine()
-{
-    command_operation("new.line", "{end}{enter}", false )
-    return
-}
+    appendNewLine()
+    {
+        command_operation("append.new.line", "{end}{enter}" )
+        return
+    }
 
+    deleteCurrentLine()
+    {
+        sendPlay {home}+{end}{delete}
+        return
+    }
+;#line operation }
 
 ;===============================================
 ;========== basic operation define =============
 ;===============================================
 
-command_operation( name , command , autoselect )
+command_operation( name , command )
 {
-    last_is_in_mode := isInMode()
+    last_is_in_mode := isInAnyMode()
     ;addLog( last_is_in_mode )
-
-    if( autoselect == true )
-    {
-        selectCurrentLine()
-    }
 
     monitor( "***  " . name )
     sendPlay %command%

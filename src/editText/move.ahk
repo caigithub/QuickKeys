@@ -85,14 +85,10 @@
     $,::selectToPreviousSeveralLine()
 #IF
 
-
-#IF isInMode()
+#IF isInAnyMode()
     $u::selectToPreviousWord()
     $i::selectToNextWord()
 
-    $p::selectToLineEnd()
-    $y::selectToLineBegin()
-    
     $o::selectCurrentLine()
 #IF
 

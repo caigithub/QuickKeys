@@ -13,13 +13,13 @@
 
 @echo == cleaning
 @del %out%
+@md %base_dir%bin
 
 @echo .
 @echo .
 @echo == compile %src%
 @echo       icon : %icon%
 @echo       output :  %out%
-@md %base_dir%bin
 rem ---------------------------
 rem Ahk2Exe
 rem Command Line Parameters:

@@ -34,7 +34,7 @@ $Capslock::
     }
     return
 
-#IF isInMode()
+#IF isInAnyMode()
     $LButton::
     $RButton::
     $MButton::
@@ -92,7 +92,7 @@ isSelectMode()
 
 ;==============
 
-isInMode()
+isInAnyMode()
 {
     return isMoveMode() or isSelectMode()
 }
@@ -155,7 +155,7 @@ updateVimize()
 
 updateLockNotify()
 {
-    if( isInMode() )
+    if( isInAnyMode() )
     {
         lockMoveNotify()
         return
