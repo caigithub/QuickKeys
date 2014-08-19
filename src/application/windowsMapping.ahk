@@ -1,26 +1,31 @@
 $#j::    
     monitor( "***  " . "window.downscreen" )
-    sendPlay +#{left}
+    send +#{left}
     return
 
 $#k::
     monitor( "***  " . "window.upscreen" )
-    sendPlay +#{right}
+    send +#{right}
+    return
+
+$#o::
+    monitor( "***  " . "window.max" )
+    send {alt down}{space}{alt up}{x}
     return
 
 $#i::
-    monitor( "***  " . "window.max" )
-    sendPlay {alt down}{space}{alt up}{x}
+    monitor( "***  " . "window.right" )
+    send #{right}
     return
 
 $#u::
-    monitor( "***  " . "window.min" )
-    sendPlay #{down}
+    monitor( "***  " . "window.left" )
+    send #{left}
     return
 
 $#m::
     monitor( "***  " . "window.desktop" )
-    sendPlay #d
+    send #d
     return
  
 $+esc::

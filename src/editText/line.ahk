@@ -1,72 +1,71 @@
 ;# common operation {
-    $!r::backspace()
-    $!p::paste()
-    $!d::del()
     $RAlt::
-        sendPlay {AppsKey}
+        send {AppsKey}
         return
 ;# common operation }
 
 ;# line operation {
     $!e::
-        sendPlay {home}+{end}{delete}
+        send {home}+{end}{delete}
         return
 
     $!q::
-        sendPlay {home}{delete}
+        send {home}{delete}
         return
 
     $!w::
-        sendPlay {end}{backspace}
+        send {end}{backspace}
         return
-        
+    
+    $!r::
+        send +{home}{delete}
+        return
+
+    $!d::
+    $!f::
+        send +{end}{delete}
+        return
+
+    $!y::
     $!o::
-        sendPlay {home}+{end}^c
+        send +{home}^c
         return
 
     $!u::
-        sendPlay +{home}^c
+        send +{home}^c
         return
 
     $!i::
-        sendPlay +{end}^c
-        return
-
-    $!h::
-        sendPlay +{home}{delete}
-        return
-
-    $!l::
-        sendPlay +{end}{delete}
+        send +{end}^c
         return
 ;# line operation }
 
 
 ;# line end append {
     $!0::
-        sendPlay {end})
+        send {end})
         return
 
     $!]::
-        sendPlay {end}{`}}
+        send {end}{`}}
         return
 
     $!;::
         monitor( "***  " . "pro.line.end" )
         if( isDoubleClick("new.program.end") )
         {
-            sendPlay {enter}
+            send {enter}
         }
         else
         {
-            sendPlay {end}`;
+            send {end}`;
         }
-
+        return
 ;# line end append }
 
 ;# line begin insert {
     $!/::
         monitor( "***  " . "pro.line.commont" )
-        sendPlay {home}//
+        send {home}//
         return
 ;# line begin insert }

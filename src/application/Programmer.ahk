@@ -16,26 +16,6 @@
 
 
 ; ==== text fixing {
-	$+.::
-        GetKeyState, state, LShift
-        if state = D 
-            sendPlay .
-        else
-            sendPlay >
-        return
-
-    $!.::
-        sendPlay .
-        return 
-
-    $+,::
-        GetKeyState, state, LShift
-        if state = D 
-            sendPlay {,}
-        else
-            newAngleSquare()
-        return
-
     $!,::
         ;sendPlay {,}
         newAngleSquare( true ) 
