@@ -11,8 +11,8 @@
         }
         return
 
-
-    $+{::newCurveSquare()
+    $[::newSquare()
+    $+[::newCurveSquare()
     $![::
         if( isDoubleClick( "pair.curveSquare" ) )
         {
@@ -26,12 +26,12 @@
 
         return
 
-    $[::newSquare()
 
-    $+'::newQuato()
-    $!'::newQuato( true )
+    $+,::newAngleSquare()
 
     $'::newSingleQuato()
+    $+'::newQuato()
+    $!'::newQuato( true )
 
     $!5::newVariable( true )
     $+5::newVariable()

@@ -5,39 +5,48 @@
 ;# common operation }
 
 ;# line operation {
-    $!e::
-        send {home}+{end}{delete}
-        return
+    ; left hand
+        $!e::
+            send {home}+{end}{delete}
+            return
 
-    $!q::
-        send {home}{delete}
-        return
+        $!q::
+            send {home}{delete}
+            return
 
-    $!w::
-        send {end}{backspace}
-        return
-    
-    $!r::
-        send +{home}{delete}
-        return
+        $!w::
+            send {end}{backspace}
+            return
+        
+        $!r::
+            send +{home}{delete}
+            return
 
-    $!d::
-    $!f::
-        send +{end}{delete}
-        return
+        $!d::
+            send +{end}{delete}
+            return
 
-    $!y::
-    $!o::
-        send +{home}^c
-        return
+    ; right hand
+        $!y::
+        $!o::
+            send {home}+{end}^c
+            return
 
-    $!u::
-        send +{home}^c
-        return
+        $!u::
+            send +{home}^c
+            return
 
-    $!i::
-        send +{end}^c
-        return
+        $!i::
+            send +{end}^c
+            return
+
+        $!j::
+            send {end}{enter}
+            return
+
+        $!k::
+            send {home}{enter}{up}
+            return
 ;# line operation }
 
 
@@ -48,6 +57,10 @@
 
     $!]::
         send {end}{`}}
+        return
+
+    $!,::
+        send {end},
         return
 
     $!;::

@@ -16,11 +16,6 @@
 
 
 ; ==== text fixing {
-    $!,::
-        ;sendPlay {,}
-        newAngleSquare( true ) 
-        return
-
     $`::
         sendPlay +{Tab}
         return
