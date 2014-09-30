@@ -90,5 +90,8 @@
     $i::selectToNextWord()
 
     $o::selectCurrentLine()
+
+    $a::selectToLineBegin()
+    $s::selectToLineEnd()
 #IF
 

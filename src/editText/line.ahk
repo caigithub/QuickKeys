@@ -6,46 +6,55 @@
 
 ;# line operation {
     ; left hand
-        $!e::
-            send {home}+{end}{delete}
-            return
-
         $!q::
             send {home}{delete}
             return
 
         $!w::
-            send {end}{backspace}
-            return
-        
-        $!r::
             send +{home}{delete}
             return
 
-        $!d::
-            send +{end}{delete}
+        $!e::
+            send {home}+{end}{delete}
+            return
+
+        $!r::
+            send +{end}{backspace}
+            return
+        
+        $!t::
+            send {end}{backspace}
             return
 
     ; right hand
         $!y::
-        $!o::
-            send {home}+{end}^c
+            send {home}{enter}^{enter}
             return
 
         $!u::
-            send +{home}^c
+            send {home}^v
+            return 
+
+        $!i:: 
+            send {end}^v
             return
 
-        $!i::
-            send +{end}^c
+        $!p::
+            send {end}{enter}^v
+            return 
+
+        $!o::
+            send {home}+{end}^c{end}{enter}^v
             return
 
         $!j::
             send {end}{enter}
+            enterEditMode()
             return
 
         $!k::
             send {home}{enter}{up}
+            enterEditMode()
             return
 ;# line operation }
 

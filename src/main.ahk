@@ -14,20 +14,18 @@ monitor( name )
     addLog( name )
 }
 
-#include main\state_ui.ahk
-#include main\state.ahk
+#include editInMode\state_ui.ahk
+#include editInMode\state.ahk
+#include editInMode\move_command.ahk
+#include editInMode\operator_command.ahk
+#include editInMode\move.ahk
+#include editInMode\operator.ahk
 
-#include editText\move_command.ahk
-#include editText\operator_command.ahk
 #include editText\pair_command.ahk
-
-#include editText\move.ahk
-#include editText\operator.ahk
 #include editText\line.ahk
 #include editText\pair.ahk
 
 #include application\textInputOutputCommand.ahk
-
 #include application\Programmer.ahk
 
 #include application\windowsCommand.ahk

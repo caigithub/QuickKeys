@@ -1,14 +1,19 @@
 ; ==== operator {
     #IF isInAnyMode() 
+        $q::
+            sendPlay {home}{delete}
+            return
+
+        $r::
+            sendPlay {backspace}
+            return
+
+        $t::
+            sendPlay {end}{backspace}
+            return
+
         $e::deleteCurrentLine()
             
-        $t::
-        $r::
-            backspace()
-            return
-        
-        $a::selectCurrentDoc()
-        $s::^s
         $d::del()
         $f::
             enterMoveMode()
@@ -19,11 +24,14 @@
         $x::cut()
 
         $y::copy()
-        $p::paste()
         $v::paste()
 
+        $p::
+            send {end}{enter}^v
+            return
+
         $c::
-            del()
+            send {space}{backspace}
             enterEditMode()
             return
     #IF
