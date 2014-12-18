@@ -20,6 +20,10 @@
         sendPlay +{Tab}
         return
 
+    $+Tab::
+        sendPlay {home}{Tab} 
+        return
+    
     $+Enter::
     $!Enter::
         appendNewLine()

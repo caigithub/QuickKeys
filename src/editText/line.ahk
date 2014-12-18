@@ -15,47 +15,55 @@
             return
 
         $!e::
-            send {home}+{end}{delete}
+            send {space}{home}+{end}{delete}{delete}
             return
 
         $!r::
-            send +{end}{backspace}
-            return
-        
         $!t::
             send {end}{backspace}
             return
 
-    ; right hand
-        $!y::
-            send {home}{enter}^{enter}
+        $!d::
+            send +{end}{backspace}
             return
+        
+    ; right hand { 
+        ; copy {
+            $!y::
+                send {home}+{end}^c
+                ;send {home}{enter}^{enter}
+                return
+        ; }
 
-        $!u::
-            send {home}^v
-            return 
+        ; paste {
+            $!u::
+                send {home}^v
+                return 
 
-        $!i:: 
-            send {end}^v
-            return
+            $!i:: 
+                send {end}^v
+                return
 
-        $!p::
-            send {end}{enter}^v
-            return 
+        
+            $!p::
+                send {end}{enter}^v
+                return 
 
-        $!o::
-            send {home}+{end}^c{end}{enter}^v
-            return
+            $!o::
+                send {home}+{end}^c{end}{enter}^v
+                return
+        ; }
 
-        $!j::
-            send {end}{enter}
-            enterEditMode()
-            return
+        ; move { 
+            $!j::
+                send {end}{enter}
+                return
 
-        $!k::
-            send {home}{enter}{up}
-            enterEditMode()
-            return
+            $!k::
+                send {home}{enter}{up}
+                return
+        ; } 
+    ; } 
 ;# line operation }
 
 

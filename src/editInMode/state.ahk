@@ -2,7 +2,7 @@ mode_name := "edit"
 SetCapsLockState, Off
 
 $Capslock::
-    if( isDoubleClick("capslock.status") )
+   if( isDoubleClick("capslock.status") )
     {
         enterMoveMode()
         updateLockNotify()
@@ -33,6 +33,26 @@ $Capslock::
         }
     }
     return
+
+;================================================================================================
+
+CapslockStatusDirect() {
+    press_down_time := A_TickCount
+    last_lock_mode_name := mode_name
+
+    enterMoveMode()
+        
+    KeyWait, Capslock  ; 等待用户物理地松开?????
+    
+    if( A_TickCount - press_down_time >= 130 ) ; caps lock + operation
+    {   
+        enterEditMode()
+    }        
+
+    updateLockNotify()
+    return
+}
+;================================================================================================
 
 #IF isInAnyMode()
     $LButton::

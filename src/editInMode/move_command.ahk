@@ -126,25 +126,25 @@ moveToPreviousLine()
 
 moveToNextSeveralLine()
 {
-    move_operation("m-line.move.down", "{down 5}" )
+    move_operation("m-line.move.down", "{down 3}" )
     return
 }
 
 moveToPreviousSeveralLine()
 {
-    move_operation("m-line.move.up", "{up 5}" )
+    move_operation("m-line.move.up", "{up 3}" )
     return
 }
 
 selectToNextSeveralLine()
 {
-    select_operation("m-line.select.down", "+{down 5}" )
+    select_operation("m-line.select.down", "+{down 3}" )
     return
 }
 
 selectToPreviousSeveralLine()
 {
-    select_operation("m-line.select.up",  "+{up 5}" )
+    select_operation("m-line.select.up",  "+{up 3}" )
     return
 }
 

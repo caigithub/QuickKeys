@@ -1,5 +1,6 @@
 #IfWinActive , OneNote
     ;== { formatting
+        $F5::
         $!f::
             onenoteFormatsClear()
             return 

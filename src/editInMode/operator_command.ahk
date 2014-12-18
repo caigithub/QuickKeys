@@ -45,7 +45,7 @@
 
     deleteCurrentLine()
     {
-        sendPlay {home}+{end}{delete}
+        sendPlay {space}{home}+{end}{delete}{delete}
         return
     }
 ;#line operation }

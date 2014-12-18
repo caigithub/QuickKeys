@@ -3,17 +3,17 @@
         $q::
             sendPlay {home}{delete}
             return
-
+        $e::deleteCurrentLine()
         $r::
+        $t::
             sendPlay {backspace}
             return
-
-        $t::
-            sendPlay {end}{backspace}
+        
+        $a::
+            send {home}
+            enterEditMode()   
             return
-
-        $e::deleteCurrentLine()
-            
+        $s::^s
         $d::del()
         $f::
             enterMoveMode()
@@ -22,16 +22,19 @@
 
         $z::^z
         $x::cut()
-
-        $y::copy()
+        $c::
+            send {space}{backspace}
+            enterEditMode()
+            return
         $v::paste()
 
+        $y::copy()
         $p::
             send {end}{enter}^v
             return
 
-        $c::
-            send {space}{backspace}
+        $~^f::
+        $~^o::
             enterEditMode()
             return
     #IF
