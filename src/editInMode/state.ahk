@@ -2,43 +2,50 @@ mode_name := "edit"
 SetCapsLockState, Off
 
 $Capslock::
-    IfWinActive , - GVIM
+
+   if( isDoubleClick("capslock.status") )
     {
-        enterEditMode()
-        send {esc}
+        enterMoveMode()
+        updateLockNotify()
     }
     else
     {
-       if( isDoubleClick("capslock.status") )
-        {
-            enterMoveMode()
-            updateLockNotify()
-        }
-        else
-        {
-            press_down_time := A_TickCount
-            last_lock_mode_name := mode_name
+        press_down_time := A_TickCount
+        last_lock_mode_name := mode_name
 
-            enterMoveMode()
-        
-            KeyWait, Capslock  ; 等待用户物理地松开?????
-        
-            if( A_TickCount - press_down_time >= 130 ) ; caps lock + operation
-            {   
-                enterEditMode()
-
-                    if(  last_lock_mode_name <> "edit" )
-                    {
-                        updateLockNotify()
-                    }
-            }        
-            else ; simple change state
+        enterMoveMode()
+    
+        KeyWait, Capslock  ; 等待用户物理地松开?????
+    
+        if( A_TickCount - press_down_time >= 130 ) ; caps lock + operation
+        {   
+            enterEditMode()
+            if(  last_lock_mode_name <> "edit" )
             {
-                toggleMode( last_lock_mode_name )
                 updateLockNotify()
             }
+        }        
+        else ; simple change state
+        {
+            IfWinActive , - GVIM
+            {
+                enterEditMode()
+                send {esc}
+                return
+            }
+             
+            IfWinActive , PuTTY
+            {
+                enterEditMode()
+                send {esc}
+                return
+            }      
+ 
+            toggleMode( last_lock_mode_name )
+            updateLockNotify()
         }
     }
+
     return
 
 ;================================================================================================
