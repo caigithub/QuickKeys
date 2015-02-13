@@ -37,11 +37,11 @@
 
         ; paste {
             $!u::
-                send {home}^v
+                send +{home}{del}
                 return 
 
             $!i:: 
-                send {end}^v
+                send +{end}{del}
                 return
 
         
@@ -50,7 +50,7 @@
                 return 
 
             $!o::
-                send {home}+{end}^c{end}{enter}^v
+                send {home}+{end}
                 return
         ; }
 
