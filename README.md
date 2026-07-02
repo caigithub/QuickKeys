@@ -1,11 +1,16 @@
 # QUICKK
 
 QUICKK is a Windows keyboard tool inspired by Vim.
-It brings mode-based editing to any Windows text field.
+<br/>It brings mode-based editing to any Windows text field.
 
 ## What it does
-We have 3 modes : Type, Move, Select.
+We have modes : Type Mode, Move/Select Mode. 
 Source: `src/editInMode/state_mapping.ahk`
+
+- Change Mode :
+<br/>![State Switch : type <-> Move/Select ](https://raw.githubusercontent.com/caigithub/QuickKeys/refs/heads/master/readme/state-type-move.png)
+- You can also "temporay enter Move/Selection during Type" :
+![State Switch : type <-> Move/Select ](https://raw.githubusercontent.com/caigithub/QuickKeys/refs/heads/master/readme/state-type-move-quick.png)
 
 the key mapping philosiphy is :
 - In move/select mode, the left hand controls operators and the right hand controls movement and selection.
@@ -14,17 +19,15 @@ the key mapping philosiphy is :
 
 ### Type mode key mapping
 Type mode is the normal typing state.
-Switch:
-- It is the default mode.
-- Press Left-Shift to enter type mode.
+<br/>It is the default mode.
+<br/>Press Left-Shift to enter type mode.
 
 ### Move/Select mode key mapping
 Move mode is for cursor movement and quick editing actions.
-once you selected something, move will become select.
-once you operator something, select will become move.
-
-Switch:
-- Press CapsLock to enter it.
+<br/>Press CapsLock to enter it.
+<br/>![State Switch : type <-> Move/Select quick](https://raw.githubusercontent.com/caigithub/QuickKeys/refs/heads/master/readme/state-move-select.png)
+<br/>once you selected something, move will become select.
+<br/>once you operator something, select will become move.
 
 #### Move/Select mappings
 Source: `src/editInMode/move_mapping.ahk`
@@ -37,7 +40,6 @@ Source: `src/editInMode/move_mapping.ahk`
 | Move/Select | Move several lines | m / , |
 | Move/Select | Select current document | q |
 | Move/Select | Select current line | o |
-| Move/Select | Enter select mode | t |
 
 #### Operator mappings
 Source: `src/editInMode/operator_mapping.ahk`
@@ -49,6 +51,8 @@ Source: `src/editInMode/operator_mapping.ahk`
 | Operator | Cut | x |
 | Operator | Copy | c / y |
 | Operator | Paste | v / p |
+| state | Enter select mode | t |
+| state | Enter move mode | f |
 
 ## All-time key mapping
 
