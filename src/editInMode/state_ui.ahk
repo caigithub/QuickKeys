@@ -1,85 +1,37 @@
-vimize( message )
-{
-    Gui 3:Show, Minimize NoActivate, %message% ; Hide,
-}
 
-unvimize()
-{
-    Gui 3:Destroy
-}
 
-lockEditNotify()
+;=================
+
+updateTaskBar()
 {
-    Gui 31:Destroy
-    Gui 33:Destroy
-    
-    Gui 32:+LastFoundExist
-    IfWinNotExist
+    if( isSelectMode() )
     {
-        Gui, 32:Add, Text,, Edit Mode
-        Gui, 32:-SysMenu
-        Gui, 32:-Caption
-        Gui, 32:Color, 00FF00
-        Gui, 32:+Border
-        Gui, 32:+AlwaysOnTop
-        Gui, 32:+ToolWindow
-        Gui, 32:Show, AutoSize Center NoActivate
+        vimize( "Select" )
+        return
     }
-    requestToCloseNotify()
-}
 
-lockMoveNotify()
-{
-    Gui, 32:Destroy
-    Gui, 33:Destroy
-    Gui 3:Flash
-    
-    Gui 31:+LastFoundExist
-    IfWinNotExist
+    if( isMoveMode() )
     {
-        Gui, 31:Add, Text,, Move Mode
-        Gui, 31:-SysMenu
-        Gui, 31:-Caption
-        Gui, 31:Color, FFFF00
-        Gui, 31:+Border
-        Gui, 31:+AlwaysOnTop
-        Gui, 31:+ToolWindow
-        Gui, 31:Show, AutoSize Center NoActivate
+        vimize("Move")
+        return
     }
-    requestToCloseNotify()
+
+    unvimize()
 }
 
-lockWaitNotify() 
+updateLockNotify(  auto_close = true )
 {
-    Gui, 32:Destroy
-    Gui, 31:Destroy
-    Gui 3:Flash
-    
-    Gui 33:+LastFoundExist
-    IfWinNotExist
+    if( isOperationMode() )
     {
-        Gui, 33:Add, Text,, Executing
-        Gui, 33:-SysMenu
-        Gui, 33:-Caption
-        Gui, 33:Color, ffffff
-        Gui, 33:+Border
-        Gui, 33:+AlwaysOnTop
-        Gui, 33:+ToolWindow
-        Gui, 33:Show, AutoSize Center NoActivate
+        lockMoveNotify( auto_close )
+        return
     }
-    requestToCloseNotify()
-} 
 
-closeAllNotify()
-{
-    Gui, 33:Destroy
-    Gui, 32:Destroy
-    Gui, 31:Destroy
+    if( isEcsMode() )
+    {
+        lockEcsNotify( auto_close )
+        return
+    }
+
+    lockITypeNotify( auto_close )
 }
-
-requestToCloseNotify()
-{
-    SetTimer, action_closeAllNotify, 500
-}
-
-

@@ -2,49 +2,60 @@
 #SingleInstance, Force
 SetTitleMatchMode, 2
 
-#include main\map.ahk
-#include main\doubleClickChecker.ahk
+#include util\feature.ahk
+#include util\featureDoubleClick.ahk
+#include util\featureLastOperation.ahk
 
-#include main\statistic.ahk
-#include main\logger.ahk
+#include util\summary_feature.ahk
+#include util\summary_statistic.ahk
+#include util\summary_logger.ahk
+#include util\monitor.ahk
 
-monitor( name )
-{
-    addStatistic( name )
-    addLog( name )
-}
-
+#include editInMode\state_mode_list.ahk
+#include editInMode\state_ui_task.ahk
+#include editInMode\state_ui_notify.ahk
 #include editInMode\state_ui.ahk
-#include editInMode\state.ahk
+
 #include editInMode\move_command.ahk
+#include editInMode\move_command_char.ahk
+#include editInMode\move_command_word.ahk
+#include editInMode\move_command_line.ahk
+#include editInMode\move_command_doc.ahk
+
 #include editInMode\operator_command.ahk
-#include editInMode\move.ahk
-#include editInMode\operator.ahk
+#include editInMode\operator_command_word.ahk
+#include editInMode\operator_command_line.ahk
+
+#include editInMode\state_mapping.ahk
+#include editInMode\move_mapping.ahk
+#include editInMode\select_mapping.ahk
+#include editInMode\operator_mapping.ahk
 
 #include editText\pair_command.ahk
-#include editText\line.ahk
-#include editText\pair.ahk
+#include editText\pair_mapping.ahk
+#include editText\line_mapping.ahk
+#include editText\Programmer.ahk
 
-#include application\textInputOutputCommand.ahk
-#include application\Programmer.ahk
+#include application\vim.ahk
+#include application\windows.ahk
 
-#include application\windowsCommand.ahk
-#include application\windowsMapping.ahk
+; #include application\textInputOutputCommand.ahk
+; #include application\windowsCommand.ahk
+; #include application\windowsMapping.ahk
 
-#include application\MainNoteOnenote.ahk
-;#include application\MainNoteEvernote.ahk
+; #include application\onenoteMain.ahk
+; #include application\evernoteMain.ahk
 
-#include application\onenoteMapping.ahk
-#include application\evernoteMapping.ahk
+; #include application\onenoteMapping.ahk
+; #include application\evernoteMapping.ahk
 
 #include application\officeCommand.ahk
 #include application\officeMapping.ahk
 
 return
 
-$^!\::
-    Suspend, Toggle
-    SetCapsLockState, Off
+view_feature:
+    popupFeature()
     return
 
 view_statistic:

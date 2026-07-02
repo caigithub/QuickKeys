@@ -1,38 +1,13 @@
 ;== { format command
-        fontIncrease()
-        {
-            line_operation( "fontIncrease" , "^+{>}" )
-                return
-        }
-
-        FontDecrease()
-        {
-            line_operation( "fontDecrease" , "^+{<}" )
-                return
-        }
-
-        highlight()
-        {
-            monitor("**** highlight")
-            sendPlay ^!{h}
-            return
-        }
-
         bold()
         {
-            line_operation( "bold" , "^{b}" )
-            return
-        }
-
-        underline()
-        {
-            line_operation( "underline" , "^{u}" )
+            office_operation( "bold" , "^{b}" )
             return
         }
 
         strikethrough()
         {
-            line_operation("strikethrough", "^-")
+            office_operation("strikethrough", "^-")
             return
         }
 ;== }
@@ -40,8 +15,16 @@
 ;== {
         titleCurrentLine()
         {
-            line_operation( "title" , "^b^u" )
-            SendPlay ^b^u
+            office_operation( "title" , "^b^u" )
             return
         }
-;==
+;== }
+
+office_operation( name, key )
+{
+    monitor_command( "office.operation." . name )
+    SendInput {home}+{end}
+    SendInput %key%
+    SendInput {end}
+    return
+}

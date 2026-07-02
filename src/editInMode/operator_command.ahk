@@ -30,45 +30,22 @@
     }
 ;#common operation }
 
-;#line operation { 
-    insertNewLine()
-    {
-        command_operation("insert.new.line", "{home}{enter}{up}" )
-        return
-    }
-
-    appendNewLine()
-    {
-        command_operation("append.new.line", "{end}{enter}" )
-        return
-    }
-
-    deleteCurrentLine()
-    {
-        sendPlay {space}{home}+{end}{delete}{delete}
-        return
-    }
-;#line operation }
 
 ;===============================================
 ;========== basic operation define =============
 ;===============================================
 
-command_operation( name , command )
-{
-    last_is_in_mode := isInAnyMode()
-    ;addLog( last_is_in_mode )
+command_operation( name , command ) {
 
-    monitor( "***  " . name )
-    sendPlay %command%
+    monitor_command(name)
+    SendInput %command%
 
-    if( last_is_in_mode )
+    if( isOperationMode() )
     {
         enterMoveMode()
     }
     else
     {
-        enterEditMode()
+        enterTypeMode()
     }
 }
-

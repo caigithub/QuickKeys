@@ -1,56 +1,48 @@
-newBracket( double = false )
+newBracket( expend_now = false)
 {
-    new_pair_operation( "new.()" , "(" , ")" , double )
+    new_pair_operation( "new.()" , "(" , ")" , expend_now)
     return
 }
 
-newSquare( double = false )
+newSquare( expend_now = false)
 {
-    new_pair_operation("new.[]", "[", "]" , double )
+    new_pair_operation("new.[]", "[", "]" , expend_now  )
     return
 }
 
-newCurveSquare( double = false )
+newCurveSquare( expend_now = false)
 {
-    new_pair_operation("new.{}", "{{}", "{}}" , double )
+    new_pair_operation("new.{}", "{{}", "{}}" , expend_now  )
     return
 }
 
-newQuato( double = false )
+newQuato( expend_now = false)
 {
-    new_pair_operation("new.""" , """","""" , double )
+    new_pair_operation("new.""" , """","""" , expend_now  )
     return
 }
 
-newSingleQuato( double = false )
+newSingleQuato( expend_now = false)
 {
-    new_pair_operation("new.''", "`'" , "`'" , double )
+    new_pair_operation("new.''", "`'" , "`'"  , expend_now )
     return
 }
 
-newAngleSquare( double = false )
+newAngleSquare( expend_now = false)
 {
-    new_pair_operation("new.<>", "<" , ">" , double )
+    new_pair_operation("new.<>", "<" , ">" , expend_now  )
     return
 }
 
-newVariable( double = false )
+newVariable( expend_now = false, expand_at_line_end = false )
 {
-    new_pair_operation("new.%%" , "`%" , "`%" , double )
+    new_pair_operation("new.%%" , "`%" , "`%"  , expend_now )
     return
 }
 
-newStar( double = false )
+newStar( expend_now = false)
 {
-    new_pair_operation("new.%%" , "*" , "*" , double )
-    return
-}
-
-expandPair()
-{
-    monitor("*** pair.expand")
-
-    sendPlay {enter}{enter}{up}{end}{Tab}
+    new_pair_operation("new.%%" , "*" , "*" , expend_now  )
     return
 }
 
@@ -58,23 +50,31 @@ expandPair()
 ;========== basic operation define =============
 ;===============================================
 
-new_pair_operation(name, operation1, operation2, needDoubleClick )
-{
-    monitor( "***  " . name )
 
-    if( needDoubleClick )
+new_pair_operation(name, begin_char, end_char, expand_now )
+{
+    monitor_command(name)
+
+    if( expand_now )
     {
-        sendPlay %operation1%%operation2%{left}
+        SendInput %begin_char%%end_char%{left}
+
+        enterTypeMode()
+        updateLockNotify()
+
         return
     }
 
     if( isDoubleClick(name) )
     {
-        sendPlay %operation2%
-        sendPlay {left}
+        SendInput %end_char%
+        SendInput {left}
+
+        enterTypeMode()
+        updateLockNotify()
     }
     else
     {
-        sendPlay %operation1%
+        SendInput %begin_char%
     }
 }
