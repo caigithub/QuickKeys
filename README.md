@@ -106,13 +106,12 @@ Source: `src/application/windows.ahk`
 ### Requirements
 
 - Windows
-- AutoHotkey
+- AutoHotkey 2.0 ( compiler folder contains one )
 
 ### Project structure
 - src/main.ahk: main entry point
 
 ## Notes
-
-- See install.checklist.txt for setup help.
-- Some features are disabled in src/main.ahk.
-- You can enable them by editing that file.
+- feel free to enhance your own mapping. ^_^
+- If you like it, buy me a ☕coffee. ^_^ :
+ [$3](https://paypal.me/colinkaopu/3) · [$10](https://paypal.me/colinkaopu/10) · [Custom](https://paypal.me/colinkaopu)
